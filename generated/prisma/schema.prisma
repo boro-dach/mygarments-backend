@@ -13,3 +13,43 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  id       String @id @default(cuid())
+  email    String @unique
+  name     String
+  password String
+  role     Roles  @default(USER)
+  login    String
+
+  accessToken String?
+}
+
+enum Roles {
+  USER
+  ADMIN
+}
+
+model Category {
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  id       String    @id @default(cuid())
+  title    String    @unique
+  garments Garment[]
+}
+
+model Garment {
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  id         String   @id @default(cuid())
+  title      String
+  count      Int
+  price      Float
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+}
