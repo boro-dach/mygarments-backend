@@ -188,7 +188,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:MFkr5663@localhost:5432/mygarments?schema=public"
+        "value": "postgresql://postgres:NkfV05u8tyfBJ@localhost:5433/mygarments"
       }
     }
   },
