@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { hash } from 'argon2';
 import { RegisterDto } from 'src/auth/dto/auth.dto';
 import { PrismaService } from 'src/prisma.service';
@@ -40,5 +40,17 @@ export class UserService {
       where: { id },
       data: { accessToken: token },
     });
+  }
+
+  async getName(id: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+    });
+
+    if (!user) {
+      return new BadRequestException("User doesn't exist");
+    }
+
+    return user.name;
   }
 }
