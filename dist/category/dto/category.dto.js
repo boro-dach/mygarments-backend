@@ -9,24 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CategoryService = void 0;
-const common_1 = require("@nestjs/common");
-const prisma_service_1 = require("../prisma.service");
-let CategoryService = class CategoryService {
-    prisma;
-    constructor(prisma) {
-        this.prisma = prisma;
-    }
-    async create(dto) {
-        const category = await this.prisma.category.create({
-            data: dto,
-        });
-        return category;
-    }
-};
-exports.CategoryService = CategoryService;
-exports.CategoryService = CategoryService = __decorate([
-    (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
-], CategoryService);
-//# sourceMappingURL=category.service.js.map
+exports.CreateCategory = void 0;
+const class_validator_1 = require("class-validator");
+class CreateCategory {
+    title;
+}
+exports.CreateCategory = CreateCategory;
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateCategory.prototype, "title", void 0);
+//# sourceMappingURL=category.dto.js.map

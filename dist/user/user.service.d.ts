@@ -1,3 +1,4 @@
+import { BadRequestException } from '@nestjs/common';
 import { RegisterDto } from 'src/auth/dto/auth.dto';
 import { PrismaService } from 'src/prisma.service';
 export declare class UserService {
@@ -37,4 +38,5 @@ export declare class UserService {
         accessToken: string | null;
     }>;
     updateToken(id: string, token: string): Promise<void>;
+    getName(id: string): Promise<string | BadRequestException>;
 }

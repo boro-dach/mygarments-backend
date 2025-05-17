@@ -47,6 +47,15 @@ let UserService = class UserService {
             data: { accessToken: token },
         });
     }
+    async getName(id) {
+        const user = await this.prisma.user.findUnique({
+            where: { id },
+        });
+        if (!user) {
+            return new common_1.BadRequestException("User doesn't exist");
+        }
+        return user.name;
+    }
 };
 exports.UserService = UserService;
 exports.UserService = UserService = __decorate([
