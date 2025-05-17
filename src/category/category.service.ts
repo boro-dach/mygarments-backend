@@ -6,11 +6,22 @@ import { CreateCategory } from './dto/category.dto';
 export class CategoryService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(dto: CreateCategory) {
+  async create(dto: CreateCategory, id: string) {
     const category = await this.prisma.category.create({
-      data: dto,
+      data: {
+        title: dto.title,
+        userId: id,
+      },
     });
 
     return category;
+  }
+
+  async get(id: string) {
+    const categories = await this.prisma.category.findMany({
+      where: { userId: id },
+    });
+
+    return categories;
   }
 }

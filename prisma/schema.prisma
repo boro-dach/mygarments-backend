@@ -26,6 +26,7 @@ model User {
   login     String
 
   accessToken String?
+  categories  Category[] 
 }
 
 enum Roles {
@@ -38,9 +39,13 @@ model Category {
   updatedAt DateTime @updatedAt
 
   id        String   @id @default(cuid())
-  title      String   @unique
+  title      String  
   garments  Garment[]
 
+  userId    String   
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, title])
 }
 
 model Garment {

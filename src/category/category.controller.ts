@@ -1,9 +1,9 @@
-import { Body, Controller, HttpCode, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { CreateCategory } from './dto/category.dto';
-import { Role } from 'src/auth/decorators/roles.decorator';
 import { Roles } from 'generated/prisma';
+import { CurrentUser } from 'src/user/decorators/user.decorator';
 
 @Controller('category')
 export class CategoryController {
@@ -12,9 +12,18 @@ export class CategoryController {
   @Auth(Roles.USER, Roles.ADMIN)
   @HttpCode(200)
   @Post('create')
-  async create(@Body() dto: CreateCategory) {
-    const category = await this.categoryService.create(dto);
+  async create(@Body() dto: CreateCategory, @CurrentUser('id') id: string) {
+    const category = await this.categoryService.create(dto, id);
 
     return category;
+  }
+
+  @Auth(Roles.USER, Roles.ADMIN)
+  @HttpCode(200)
+  @Get('get')
+  async get(@CurrentUser('id') id: string) {
+    const categories = await this.categoryService.get(id);
+
+    return categories;
   }
 }
