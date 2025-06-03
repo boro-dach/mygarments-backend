@@ -26,6 +26,8 @@ model User {
   login     String
 
   accessToken String?
+
+  categories Category[] // A user can have multiple categories
 }
 
 enum Roles {
@@ -38,9 +40,11 @@ model Category {
   updatedAt DateTime @updatedAt
 
   id        String   @id @default(cuid())
-  title      String   @unique
+  title     String   @unique
   garments  Garment[]
 
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
 }
 
 model Garment {

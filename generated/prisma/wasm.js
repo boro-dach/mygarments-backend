@@ -136,7 +136,8 @@ exports.Prisma.CategoryScalarFieldEnum = {
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   id: 'id',
-  title: 'title'
+  title: 'title',
+  userId: 'userId'
 };
 
 exports.Prisma.GarmentScalarFieldEnum = {
