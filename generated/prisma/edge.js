@@ -157,7 +157,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/uvolen/Документы/GitHub/mygarments-backend/generated/prisma",
+      "value": "C:\\Users\\uvolen\\Documents\\GitHub\\mygarments-backend\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -166,12 +166,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "rhel-openssl-3.0.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/uvolen/Документы/GitHub/mygarments-backend/prisma/schema.prisma",
+    "sourceFilePath": "C:\\Users\\uvolen\\Documents\\GitHub\\mygarments-backend\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
