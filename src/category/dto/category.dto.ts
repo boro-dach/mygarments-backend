@@ -1,3 +1,7 @@
 export class GetCategoriesDto {
-    title: string;
+  title: string;
+}
+
+export class AddCategoryDto {
+  title: string;
 }
