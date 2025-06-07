@@ -32,4 +32,16 @@ export class CategoryController {
 
     return category;
   }
+
+  @Auth(Roles.ADMIN, Roles.USER)
+  @HttpCode(200)
+  @Post('delete-category')
+  async deleteCategory(
+    @CurrentUser('id') userId: string,
+    @Body('id') id: string,
+  ) {
+    const category = await this.categoryService.deleteCategory(id, userId);
+
+    return category;
+  }
 }
