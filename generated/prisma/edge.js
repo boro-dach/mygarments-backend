@@ -157,7 +157,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\uvolen\\Documents\\GitHub\\mygarments-backend\\generated\\prisma",
+      "value": "/home/bardak/Документы/GitHub/mygarments-backend/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -166,17 +166,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\uvolen\\Documents\\GitHub\\mygarments-backend\\prisma\\schema.prisma",
+    "sourceFilePath": "/home/bardak/Документы/GitHub/mygarments-backend/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../prisma",
   "clientVersion": "6.7.0",
@@ -185,11 +184,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:NkfV05u8tyfBJ@localhost:5432/mygarments"
+        "value": null
       }
     }
   },
